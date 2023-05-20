@@ -8,6 +8,22 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "qty": {
+      "type": "decimal"
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "g",
+        "kg",
+        "l",
+        "cuillère a soupe",
+        "cuillère à café",
+        "tasse"
+      ],
+      "default": "g"
     }
   }
 }
