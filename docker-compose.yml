@@ -3,7 +3,7 @@ services:
   cooking-admin:
     container_name: cooking-admin
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile.prod
       args:
         DATABASE_CLIENT: ${DATABASE_CLIENT}
