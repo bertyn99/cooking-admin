@@ -2,19 +2,19 @@ version: '3'
 services:
   cooking-admin:
     container_name: cooking-admin
-    build: .
-    image: cooking-admin:latest
-    restart: unless-stopped
-    environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: cooking-adminDB
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PORT: ${DATABASE_PORT}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      NODE_ENV: ${NODE_ENV}
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        DATABASE_CLIENT: ${DATABASE_CLIENT}
+        DATABASE_HOST: ${DATABASE_HOST}
+        DATABASE_NAME: ${DATABASE_NAME}
+        DATABASE_USERNAME: ${DATABASE_USERNAME}
+        DATABASE_PORT: ${DATABASE_PORT}
+        JWT_SECRET: ${JWT_SECRET}
+        ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+        DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+        NODE_ENV: ${NODE_ENV}
     volumes:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
