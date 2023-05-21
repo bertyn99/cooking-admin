@@ -5,7 +5,6 @@ services:
     build: .
     image: cooking-admin:latest
     restart: unless-stopped
-    env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_HOST: cooking-adminDB
