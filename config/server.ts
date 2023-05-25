@@ -8,4 +8,12 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
+
+  admin: {
+    // ...
+    path: "/admin",
+    build: {
+      backend: env("ADMIN_BUILD_BACKEND", "http://localhost:1337"),
+    },
+  },
 });
