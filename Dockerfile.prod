@@ -24,6 +24,6 @@ WORKDIR /opt/app
 COPY --from=build /opt/app ./
 RUN chown -R strapi:strapi /opt/app
 RUN chown -R strapi:strapi /opt/app/public
-RUN chmod -R u+w /opt/app/public
+RUN chmod -R 777 /opt/app/public
 EXPOSE 1337
 CMD ["npm", "run", "start"]
