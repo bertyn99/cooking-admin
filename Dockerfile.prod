@@ -13,7 +13,7 @@ COPY . .
 RUN ["npm", "run", "build"]
 
 FROM node:18-alpine
-RUN addgroup -g 1001 strapi && adduser -u 1001 -G strapi -s /bin/sh -D strapi
+RUN addgroup -g 1001 strapi && adduser -u 1001 -G strapi -s /bin/sh -DH strapi
 RUN apk add --no-cache vips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -21,10 +21,10 @@ WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
 ENV PATH /opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
-COPY --from=build /opt/app ./
-RUN chown -R strapi:strapi /opt/app
-RUN chown -R strapi:strapi /opt/app/public
-RUN chmod -R 777 /opt/app/public
-USER strapi
+COPY --from=build --chown=strapi:strapi /opt/app ./
+
+# Switch to 'appuser'
+USER appuser
+
 EXPOSE 1337
 CMD ["npm", "run", "start"]
