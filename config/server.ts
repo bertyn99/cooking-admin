@@ -13,7 +13,7 @@ export default ({ env }) => ({
     // ...
     path: "/admin",
     build: {
-      backend: env("ADMIN_BUILD_BACKEND", "http://localhost:1337"),
+      backend: env("ADMIN_BUILD_BACKEND", "https://admin.journalducuistot.fr"),
     },
   },
 });
