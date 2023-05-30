@@ -1,19 +1,11 @@
 export default ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
-  url: env("URL", "http://localhost:1337"),
+  url: env("URL", "https://admin.journalducuistot.fr"),
   app: {
     keys: env.array("APP_KEYS"),
   },
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
-  },
-
-  admin: {
-    // ...
-    path: "/admin",
-    build: {
-      backend: env("ADMIN_BUILD_BACKEND", "https://admin.journalducuistot.fr"),
-    },
   },
 });
