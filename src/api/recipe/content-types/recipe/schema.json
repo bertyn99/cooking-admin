@@ -102,6 +102,17 @@
         }
       },
       "type": "integer"
+    },
+    "nutrition": {
+      "displayName": "nutritional Information",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "recipe.nutritional-information"
     }
   }
 }

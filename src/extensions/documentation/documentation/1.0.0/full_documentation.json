@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-05-28T11:55:32.251Z"
+    "x-generation-date": "2023-06-07T09:12:57.430Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1552,6 +1552,32 @@
                                       },
                                       "time": {
                                         "type": "integer"
+                                      },
+                                      "nutrition": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "gras": {
+                                            "type": "integer"
+                                          },
+                                          "proteine": {
+                                            "type": "integer"
+                                          },
+                                          "sucre": {
+                                            "type": "integer"
+                                          },
+                                          "calories": {
+                                            "type": "integer"
+                                          },
+                                          "carbs": {
+                                            "type": "integer"
+                                          },
+                                          "Sodium": {
+                                            "type": "integer"
+                                          }
+                                        }
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -3207,6 +3233,32 @@
                                                     "time": {
                                                       "type": "integer"
                                                     },
+                                                    "nutrition": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "gras": {
+                                                          "type": "integer"
+                                                        },
+                                                        "proteine": {
+                                                          "type": "integer"
+                                                        },
+                                                        "sucre": {
+                                                          "type": "integer"
+                                                        },
+                                                        "calories": {
+                                                          "type": "integer"
+                                                        },
+                                                        "carbs": {
+                                                          "type": "integer"
+                                                        },
+                                                        "Sodium": {
+                                                          "type": "integer"
+                                                        }
+                                                      }
+                                                    },
                                                     "createdAt": {
                                                       "type": "string",
                                                       "format": "date-time"
@@ -3569,6 +3621,9 @@
           "time": {
             "type": "integer"
           },
+          "nutrition": {
+            "$ref": "#/components/schemas/RecipeNutritionalInformationComponent"
+          },
           "locale": {
             "type": "string"
           }
@@ -3636,6 +3691,9 @@
               },
               "time": {
                 "type": "integer"
+              },
+              "nutrition": {
+                "$ref": "#/components/schemas/RecipeNutritionalInformationComponent"
               },
               "locale": {
                 "type": "string"
@@ -5029,6 +5087,32 @@
                                       "time": {
                                         "type": "integer"
                                       },
+                                      "nutrition": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "gras": {
+                                            "type": "integer"
+                                          },
+                                          "proteine": {
+                                            "type": "integer"
+                                          },
+                                          "sucre": {
+                                            "type": "integer"
+                                          },
+                                          "calories": {
+                                            "type": "integer"
+                                          },
+                                          "carbs": {
+                                            "type": "integer"
+                                          },
+                                          "Sodium": {
+                                            "type": "integer"
+                                          }
+                                        }
+                                      },
                                       "createdAt": {
                                         "type": "string",
                                         "format": "date-time"
@@ -5176,6 +5260,9 @@
           "time": {
             "type": "integer"
           },
+          "nutrition": {
+            "$ref": "#/components/schemas/RecipeNutritionalInformationComponent"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -5284,6 +5371,32 @@
               "cuillère à café",
               "tasse"
             ]
+          }
+        }
+      },
+      "RecipeNutritionalInformationComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "gras": {
+            "type": "integer"
+          },
+          "proteine": {
+            "type": "integer"
+          },
+          "sucre": {
+            "type": "integer"
+          },
+          "calories": {
+            "type": "integer"
+          },
+          "carbs": {
+            "type": "integer"
+          },
+          "Sodium": {
+            "type": "integer"
           }
         }
       },
