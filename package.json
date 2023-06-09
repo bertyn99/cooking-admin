@@ -12,6 +12,7 @@
   "dependencies": {
     "@strapi/plugin-documentation": "^4.10.6",
     "@strapi/plugin-i18n": "4.10.6",
+    "@strapi/plugin-seo": "^1.9.0",
     "@strapi/plugin-users-permissions": "4.10.6",
     "@strapi/strapi": "4.10.6",
     "@strapi/typescript-utils": "^4.10.6",
