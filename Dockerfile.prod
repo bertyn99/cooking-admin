@@ -22,7 +22,7 @@ COPY --from=build /opt/node_modules ./node_modules
 ENV PATH /opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY --from=build --chown=strapi:strapi /opt/app ./
-
+RUN 
 # Switch to 'appuser'
 USER strapi
 
