@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-06-16T14:55:33.981Z"
+    "x-generation-date": "2023-06-17T09:46:38.389Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1282,9 +1282,6 @@
                                             "id": {
                                               "type": "number"
                                             },
-                                            "metaDescription": {
-                                              "type": "string"
-                                            },
                                             "metaSocial": {
                                               "type": "array",
                                               "items": {
@@ -1448,10 +1445,13 @@
                                                 }
                                               }
                                             },
-                                            "keywords": {
+                                            "metaRobots": {
                                               "type": "string"
                                             },
-                                            "metaRobots": {
+                                            "description": {
+                                              "type": "string"
+                                            },
+                                            "keywords": {
                                               "type": "string"
                                             }
                                           }
@@ -1782,9 +1782,6 @@
                                             "id": {
                                               "type": "number"
                                             },
-                                            "metaDescription": {
-                                              "type": "string"
-                                            },
                                             "metaSocial": {
                                               "type": "array",
                                               "items": {
@@ -1948,10 +1945,13 @@
                                                 }
                                               }
                                             },
-                                            "keywords": {
+                                            "metaRobots": {
                                               "type": "string"
                                             },
-                                            "metaRobots": {
+                                            "description": {
+                                              "type": "string"
+                                            },
+                                            "keywords": {
                                               "type": "string"
                                             }
                                           }
@@ -2186,9 +2186,6 @@
           "id": {
             "type": "number"
           },
-          "metaDescription": {
-            "type": "string"
-          },
           "metaSocial": {
             "type": "array",
             "items": {
@@ -2352,10 +2349,13 @@
               }
             }
           },
-          "keywords": {
+          "metaRobots": {
             "type": "string"
           },
-          "metaRobots": {
+          "description": {
+            "type": "string"
+          },
+          "keywords": {
             "type": "string"
           }
         }
@@ -3831,9 +3831,6 @@
                                                           "id": {
                                                             "type": "number"
                                                           },
-                                                          "metaDescription": {
-                                                            "type": "string"
-                                                          },
                                                           "metaSocial": {
                                                             "type": "array",
                                                             "items": {
@@ -3997,10 +3994,13 @@
                                                               }
                                                             }
                                                           },
-                                                          "keywords": {
+                                                          "metaRobots": {
                                                             "type": "string"
                                                           },
-                                                          "metaRobots": {
+                                                          "description": {
+                                                            "type": "string"
+                                                          },
+                                                          "keywords": {
                                                             "type": "string"
                                                           }
                                                         }
@@ -4146,9 +4146,6 @@
                             "properties": {
                               "id": {
                                 "type": "number"
-                              },
-                              "metaDescription": {
-                                "type": "string"
                               },
                               "metaSocial": {
                                 "type": "array",
@@ -4313,10 +4310,13 @@
                                   }
                                 }
                               },
-                              "keywords": {
+                              "metaRobots": {
                                 "type": "string"
                               },
-                              "metaRobots": {
+                              "description": {
+                                "type": "string"
+                              },
+                              "keywords": {
                                 "type": "string"
                               }
                             }
@@ -5746,9 +5746,6 @@
                                             "id": {
                                               "type": "number"
                                             },
-                                            "metaDescription": {
-                                              "type": "string"
-                                            },
                                             "metaSocial": {
                                               "type": "array",
                                               "items": {
@@ -5912,10 +5909,13 @@
                                                 }
                                               }
                                             },
-                                            "keywords": {
+                                            "metaRobots": {
                                               "type": "string"
                                             },
-                                            "metaRobots": {
+                                            "description": {
+                                              "type": "string"
+                                            },
+                                            "keywords": {
                                               "type": "string"
                                             }
                                           }
@@ -6246,9 +6246,6 @@
                                             "id": {
                                               "type": "number"
                                             },
-                                            "metaDescription": {
-                                              "type": "string"
-                                            },
                                             "metaSocial": {
                                               "type": "array",
                                               "items": {
@@ -6412,10 +6409,13 @@
                                                 }
                                               }
                                             },
-                                            "keywords": {
+                                            "metaRobots": {
                                               "type": "string"
                                             },
-                                            "metaRobots": {
+                                            "description": {
+                                              "type": "string"
+                                            },
+                                            "keywords": {
                                               "type": "string"
                                             }
                                           }

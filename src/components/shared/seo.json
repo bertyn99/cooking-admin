@@ -6,25 +6,22 @@
   },
   "options": {},
   "attributes": {
-    "metaDescription": {
-      "type": "string",
-      "required": true,
-      "maxLength": 160,
-      "minLength": 50
-    },
     "metaSocial": {
       "type": "component",
       "repeatable": true,
       "component": "shared.meta-social"
     },
-    "keywords": {
-      "type": "text",
-      "regex": "[^,]+"
-    },
     "metaRobots": {
       "type": "string",
       "regex": "[^,]+",
       "default": "index, follow"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "keywords": {
+      "type": "text"
     }
   }
 }
