@@ -63,6 +63,11 @@
         }
       },
       "component": "shared.seo"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   }
 }
