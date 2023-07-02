@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_ui_texts",
+  "info": {
+    "displayName": "text"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
