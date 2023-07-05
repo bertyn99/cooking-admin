@@ -1,28 +1,28 @@
 {
   "collectionName": "components_recipe_nutritional_informations",
   "info": {
-    "displayName": "nutritional Information"
+    "displayName": "nutritional Information",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "gras": {
-      "type": "integer"
+    "lipides": {
+      "type": "string"
     },
     "proteine": {
-      "type": "integer",
-      "min": 0
+      "type": "string"
     },
     "sucre": {
-      "type": "integer"
+      "type": "string"
     },
     "calories": {
-      "type": "integer"
+      "type": "string"
     },
-    "carbs": {
-      "type": "integer"
+    "glucides": {
+      "type": "string"
     },
-    "Sodium": {
-      "type": "integer"
+    "sodium": {
+      "type": "string"
     }
   }
 }
