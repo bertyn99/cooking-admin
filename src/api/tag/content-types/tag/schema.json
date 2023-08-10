@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tag",
     "pluralName": "tags",
-    "displayName": "Tag"
+    "displayName": "Tag",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,10 +24,10 @@
       },
       "type": "string"
     },
-    "articles": {
+    "recipes": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::article.article",
+      "target": "api::recipe.recipe",
       "inversedBy": "tags"
     }
   }

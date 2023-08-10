@@ -73,12 +73,6 @@
       "target": "api::comment.comment",
       "mappedBy": "article"
     },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "mappedBy": "articles"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
