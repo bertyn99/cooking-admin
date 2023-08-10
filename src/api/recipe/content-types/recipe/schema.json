@@ -123,6 +123,16 @@
         }
       },
       "component": "shared.seo"
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "recipe.rate"
     }
   }
 }

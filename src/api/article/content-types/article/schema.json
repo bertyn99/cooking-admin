@@ -48,12 +48,6 @@
         }
       }
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "articles"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -72,6 +66,24 @@
         }
       },
       "component": "shared.seo"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "article"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "articles"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-article.category-article",
+      "mappedBy": "articles"
     }
   }
 }

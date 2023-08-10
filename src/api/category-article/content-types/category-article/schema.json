@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_articles",
+  "info": {
+    "singularName": "category-article",
+    "pluralName": "category-articles",
+    "displayName": "CategoryArticle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "categories"
+    }
+  }
+}

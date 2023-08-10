@@ -19,6 +19,9 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  calendar: {
+    enabled: true,
+  },
 
   // ..
   seo: {
