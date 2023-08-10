@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_recipe_rates",
+  "info": {
+    "displayName": "rate"
+  },
+  "options": {},
+  "attributes": {
+    "star": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}
