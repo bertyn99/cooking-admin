@@ -21,8 +21,9 @@ import {
   SetPluginOptions,
   MediaAttribute,
   UIDAttribute,
-  TextAttribute,
   ComponentAttribute,
+  TextAttribute,
+  DynamicZoneAttribute,
   ComponentSchema,
 } from '@strapi/strapi';
 
@@ -496,6 +497,46 @@ export interface PluginUploadFolder extends CollectionTypeSchema {
   };
 }
 
+export interface PluginPublisherAction extends CollectionTypeSchema {
+  info: {
+    singularName: 'action';
+    pluralName: 'actions';
+    displayName: 'actions';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    executeAt: DateTimeAttribute;
+    mode: StringAttribute;
+    entityId: IntegerAttribute;
+    entitySlug: StringAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'plugin::publisher.action',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'plugin::publisher.action',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
 export interface PluginI18NLocale extends CollectionTypeSchema {
   info: {
     singularName: 'locale';
@@ -720,17 +761,28 @@ export interface ApiArticleArticle extends CollectionTypeSchema {
           localized: true;
         };
       }>;
-    categories: RelationAttribute<
-      'api::article.article',
-      'manyToMany',
-      'api::category.category'
-    >;
     slug: UIDAttribute<'api::article.article', 'title'> &
       SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    seo: ComponentAttribute<'shared.seo', true> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    comments: RelationAttribute<
+      'api::article.article',
+      'oneToMany',
+      'api::comment.comment'
+    >;
+    categories: RelationAttribute<
+      'api::article.article',
+      'manyToMany',
+      'api::category-article.category-article'
+    >;
     createdAt: DateTimeAttribute;
     updatedAt: DateTimeAttribute;
     publishedAt: DateTimeAttribute;
@@ -760,6 +812,7 @@ export interface ApiCategoryCategory extends CollectionTypeSchema {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -788,11 +841,6 @@ export interface ApiCategoryCategory extends CollectionTypeSchema {
           localized: true;
         };
       }>;
-    articles: RelationAttribute<
-      'api::category.category',
-      'manyToMany',
-      'api::article.article'
-    >;
     recipes: RelationAttribute<
       'api::category.category',
       'manyToMany',
@@ -817,6 +865,142 @@ export interface ApiCategoryCategory extends CollectionTypeSchema {
       'api::category.category',
       'oneToMany',
       'api::category.category'
+    >;
+    locale: StringAttribute;
+  };
+}
+
+export interface ApiCategoryArticleCategoryArticle
+  extends CollectionTypeSchema {
+  info: {
+    singularName: 'category-article';
+    pluralName: 'category-articles';
+    displayName: 'CategoryArticle';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: StringAttribute;
+    articles: RelationAttribute<
+      'api::category-article.category-article',
+      'manyToMany',
+      'api::article.article'
+    >;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::category-article.category-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::category-article.category-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
+export interface ApiCommentComment extends CollectionTypeSchema {
+  info: {
+    singularName: 'comment';
+    pluralName: 'comments';
+    displayName: 'Comment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: RichTextAttribute;
+    article: RelationAttribute<
+      'api::comment.comment',
+      'manyToOne',
+      'api::article.article'
+    >;
+    author: StringAttribute;
+    email: EmailAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
+export interface ApiPagePage extends CollectionTypeSchema {
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: StringAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: StringAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: UIDAttribute<'api::page.page', 'title'> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Content: DynamicZoneAttribute<['ui.card', 'ui.list-card', 'ui.text']> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seoMeta: ComponentAttribute<'shared.seo'> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    parent: RelationAttribute<'api::page.page', 'oneToOne', 'api::page.page'>;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<'api::page.page', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<'api::page.page', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+    localizations: RelationAttribute<
+      'api::page.page',
+      'oneToMany',
+      'api::page.page'
     >;
     locale: StringAttribute;
   };
@@ -892,6 +1076,25 @@ export interface ApiRecipeRecipe extends CollectionTypeSchema {
           localized: true;
         };
       }>;
+    nutrition: ComponentAttribute<'recipe.nutritional-information'> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: ComponentAttribute<'shared.seo', true> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    reviews: ComponentAttribute<'recipe.rate', true> &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tags: RelationAttribute<'api::recipe.recipe', 'manyToMany', 'api::tag.tag'>;
     createdAt: DateTimeAttribute;
     updatedAt: DateTimeAttribute;
     publishedAt: DateTimeAttribute;
@@ -911,6 +1114,87 @@ export interface ApiRecipeRecipe extends CollectionTypeSchema {
       'api::recipe.recipe',
       'oneToMany',
       'api::recipe.recipe'
+    >;
+    locale: StringAttribute;
+  };
+}
+
+export interface ApiReviewReview extends CollectionTypeSchema {
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Review';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: RichTextAttribute;
+    rate: IntegerAttribute &
+      RequiredAttribute &
+      SetMinMax<{
+        min: 0;
+        max: 5;
+      }>;
+    name: StringAttribute;
+    email: EmailAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
+export interface ApiTagTag extends CollectionTypeSchema {
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: StringAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    recipes: RelationAttribute<
+      'api::tag.tag',
+      'manyToMany',
+      'api::recipe.recipe'
+    >;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+    localizations: RelationAttribute<
+      'api::tag.tag',
+      'oneToMany',
+      'api::tag.tag'
     >;
     locale: StringAttribute;
   };
@@ -948,6 +1232,98 @@ export interface RecipeIngredients extends ComponentSchema {
   };
 }
 
+export interface RecipeNutritionalInformation extends ComponentSchema {
+  info: {
+    displayName: 'nutritional Information';
+    description: '';
+  };
+  attributes: {
+    lipides: StringAttribute;
+    proteine: StringAttribute;
+    sucre: StringAttribute;
+    calories: StringAttribute;
+    glucides: StringAttribute;
+    sodium: StringAttribute;
+  };
+}
+
+export interface RecipeRate extends ComponentSchema {
+  info: {
+    displayName: 'rate';
+  };
+  attributes: {
+    star: IntegerAttribute;
+    content: TextAttribute;
+  };
+}
+
+export interface SharedMetaSocial extends ComponentSchema {
+  info: {
+    displayName: 'metaSocial';
+  };
+  attributes: {
+    socialNetwork: EnumerationAttribute<['Facebook', 'Twitter']> &
+      RequiredAttribute;
+    title: StringAttribute &
+      RequiredAttribute &
+      SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    description: StringAttribute &
+      RequiredAttribute &
+      SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: MediaAttribute;
+  };
+}
+
+export interface SharedSeo extends ComponentSchema {
+  info: {
+    displayName: 'seo';
+    description: '';
+  };
+  attributes: {
+    metaSocial: ComponentAttribute<'shared.meta-social', true>;
+    metaRobots: StringAttribute & DefaultTo<'index, follow'>;
+    description: TextAttribute &
+      SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    keywords: TextAttribute;
+  };
+}
+
+export interface UiCard extends ComponentSchema {
+  info: {
+    displayName: 'card';
+    description: '';
+  };
+  attributes: {
+    title: StringAttribute;
+    cover: MediaAttribute;
+  };
+}
+
+export interface UiListCard extends ComponentSchema {
+  info: {
+    displayName: 'list-card';
+  };
+  attributes: {
+    Title: StringAttribute;
+    List: ComponentAttribute<'ui.card', true>;
+  };
+}
+
+export interface UiText extends ComponentSchema {
+  info: {
+    displayName: 'text';
+  };
+  attributes: {
+    content: RichTextAttribute;
+  };
+}
+
 declare global {
   namespace Strapi {
     interface Schemas {
@@ -960,15 +1336,28 @@ declare global {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::publisher.action': PluginPublisherAction;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::category-article.category-article': ApiCategoryArticleCategoryArticle;
+      'api::comment.comment': ApiCommentComment;
+      'api::page.page': ApiPagePage;
       'api::recipe.recipe': ApiRecipeRecipe;
+      'api::review.review': ApiReviewReview;
+      'api::tag.tag': ApiTagTag;
       'jo.lklk': JoLklk;
       'recipe.ingredients': RecipeIngredients;
+      'recipe.nutritional-information': RecipeNutritionalInformation;
+      'recipe.rate': RecipeRate;
+      'shared.meta-social': SharedMetaSocial;
+      'shared.seo': SharedSeo;
+      'ui.card': UiCard;
+      'ui.list-card': UiListCard;
+      'ui.text': UiText;
     }
   }
 }
