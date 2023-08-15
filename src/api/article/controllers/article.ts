@@ -74,7 +74,7 @@ export default factories.createCoreController(
 
         article.data[0] = {
           ...article.data[0],
-          ...{ prev: sanitezedNextArticle, next: sanitezedPreviousArticle },
+          ...{ prev: sanitezedPreviousArticle, next: sanitezedNextArticle },
         };
       }
 
