@@ -11,40 +11,58 @@ export default factories.createCoreController(
     async find(ctx) {
       // Calling the default core action
       const article = await super.find(ctx);
+
       if (ctx.query.populate.includes("surround")) {
+        const publishDate = new Date(article.data[0].attributes.publishedAt);
+        const fewDaysAfter = new Date(publishDate.toJSON());
+        fewDaysAfter.setDate(fewDaysAfter.getDate() + 10);
+        const fewDaysBefore = new Date(publishDate.toJSON());
+        fewDaysBefore.setDate(fewDaysBefore.getDate() - 10);
+
         const { results: nextArticle }: any = await strapi
           .service("api::article.article")
           .find({
-            where: {
-              publishedAt: {
-                gt: article.data[0].attributes.publishedAt,
-              },
+            fields: ["slug", "publishedAt"],
+            filters: {
+              $and: [
+                {
+                  publishedAt: {
+                    $gt: article.data[0].attributes.publishedAt,
+                  },
+                },
+                {
+                  publishedAt: {
+                    $lt: fewDaysAfter,
+                  },
+                },
+              ],
             },
             order: {
               publishedAt: "asc",
-            },
-            pagination: {
-              start: 1,
-              limit: 1,
             },
           });
         const { results: previousArticle }: any = await strapi
           .service("api::article.article")
           .find({
-            where: {
-              publishedAt: {
-                lt: article.data[0].attributes.publishedAt,
-              },
+            fields: ["slug", "publishedAt"],
+            filters: {
+              $and: [
+                {
+                  publishedAt: {
+                    $lt: article.data[0].attributes.publishedAt,
+                  },
+                },
+                {
+                  publishedAt: {
+                    $gt: fewDaysBefore,
+                  },
+                },
+              ],
             },
             order: {
-              publishedAt: "desc",
-            },
-            pagination: {
-              start: 1,
-              limit: 1,
+              publishedAt: "asc",
             },
           });
-
         const sanitezedNextArticle = await this.sanitizeOutput(
           nextArticle[0],
           ctx
