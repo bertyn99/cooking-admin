@@ -3,7 +3,6 @@
  */
 
 import { factories } from "@strapi/strapi";
-import { Entity } from "@strapi/strapi/lib/core-api/service";
 
 export default factories.createCoreController(
   "api::article.article",
