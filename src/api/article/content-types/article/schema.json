@@ -67,12 +67,6 @@
       },
       "component": "shared.seo"
     },
-    "comments": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::comment.comment",
-      "mappedBy": "article"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",

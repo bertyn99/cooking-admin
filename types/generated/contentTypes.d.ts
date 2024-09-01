@@ -869,22 +869,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    comments: Attribute.Relation<
-      'api::article.article',
-      'oneToMany',
-      'api::comment.comment'
-    >;
     categories: Attribute.Relation<
       'api::article.article',
       'manyToMany',
       'api::category-article.category-article'
     >;
-    content_n: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1003,44 +992,6 @@ export interface ApiCategoryArticleCategoryArticle
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category-article.category-article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCommentComment extends Schema.CollectionType {
-  collectionName: 'comments';
-  info: {
-    singularName: 'comment';
-    pluralName: 'comments';
-    displayName: 'Comment';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Attribute.RichText;
-    article: Attribute.Relation<
-      'api::comment.comment',
-      'manyToOne',
-      'api::article.article'
-    >;
-    author: Attribute.String;
-    email: Attribute.Email;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::comment.comment',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::comment.comment',
       'oneToOne',
       'admin::user'
     > &
@@ -1338,7 +1289,6 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
       'api::category-article.category-article': ApiCategoryArticleCategoryArticle;
-      'api::comment.comment': ApiCommentComment;
       'api::page.page': ApiPagePage;
       'api::recipe.recipe': ApiRecipeRecipe;
       'api::review.review': ApiReviewReview;
