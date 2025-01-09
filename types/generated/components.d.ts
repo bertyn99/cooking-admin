@@ -1,15 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface JoLklk extends Schema.Component {
-  collectionName: 'components_jo_lklks';
-  info: {
-    displayName: 'lklk';
-  };
-  attributes: {
-    ll: Attribute.String;
-  };
-}
-
 export interface RecipeIngredients extends Schema.Component {
   collectionName: 'components_recipe_ingredients';
   info: {
@@ -136,7 +126,6 @@ export interface UiText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'jo.lklk': JoLklk;
       'recipe.ingredients': RecipeIngredients;
       'recipe.nutritional-information': RecipeNutritionalInformation;
       'recipe.rate': RecipeRate;

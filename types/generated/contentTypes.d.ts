@@ -1181,48 +1181,6 @@ export interface ApiRecipeRecipe extends Schema.CollectionType {
   };
 }
 
-export interface ApiReviewReview extends Schema.CollectionType {
-  collectionName: 'reviews';
-  info: {
-    singularName: 'review';
-    pluralName: 'reviews';
-    displayName: 'Review';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Attribute.RichText;
-    rate: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-          max: 5;
-        },
-        number
-      >;
-    name: Attribute.String;
-    email: Attribute.Email;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::review.review',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::review.review',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1291,7 +1249,6 @@ declare module '@strapi/types' {
       'api::category-article.category-article': ApiCategoryArticleCategoryArticle;
       'api::page.page': ApiPagePage;
       'api::recipe.recipe': ApiRecipeRecipe;
-      'api::review.review': ApiReviewReview;
       'api::tag.tag': ApiTagTag;
     }
   }

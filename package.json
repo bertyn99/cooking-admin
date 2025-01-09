@@ -35,5 +35,8 @@
   },
   "strapi": {
     "uuid": "56a68b0f-bfeb-49a3-a12c-07c7896711fe"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.10.4"
   }
 }
