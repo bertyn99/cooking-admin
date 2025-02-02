@@ -28,8 +28,8 @@ COPY --from=build --chown=strapi:strapi /opt/app ./
 RUN mkdir -p /opt/app/public && \
     chmod -R 775 /opt/app/public && \
     chown -R strapi:strapi /opt/app/public
-RUN mkdir -p /opt/app/public/uploads && \
-    chmod -R 775 /opt/app/uploads
+
+RUN mkdir -p /opt/app/public/uploads
 
 # Switch to 'appuser'
 USER strapi
