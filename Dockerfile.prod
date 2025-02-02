@@ -24,6 +24,9 @@ COPY --from=build /opt/node_modules ./node_modules
 ENV PATH /opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY --from=build --chown=strapi:strapi /opt/app ./
+# Add these lines before switching to strapi user
+RUN mkdir -p /opt/app/public && \
+    chown -R strapi:strapi /opt/app/public
 
 # Switch to 'appuser'
 USER strapi
