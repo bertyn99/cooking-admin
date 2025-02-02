@@ -26,7 +26,9 @@ WORKDIR /opt/app
 COPY --from=build --chown=strapi:strapi /opt/app ./
 # Add these lines before switching to strapi user
 RUN mkdir -p /opt/app/public && \
+    chmod -R 775 /opt/app/public && \
     chown -R strapi:strapi /opt/app/public
+
 
 # Switch to 'appuser'
 USER strapi
