@@ -29,7 +29,7 @@ RUN mkdir -p /opt/app/public && \
     chmod -R 775 /opt/app/public && \
     chown -R strapi:strapi /opt/app/public
 RUN mkdir -p /opt/app/public/uploads && \
-    chmod -R 775 /opt/app/public
+    chmod -R 775 /opt/app/uploads
 
 # Switch to 'appuser'
 USER strapi
