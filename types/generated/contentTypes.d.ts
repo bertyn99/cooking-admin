@@ -1152,11 +1152,6 @@ export interface ApiRecipeRecipe extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    tags: Attribute.Relation<
-      'api::recipe.recipe',
-      'manyToMany',
-      'api::tag.tag'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1176,50 +1171,6 @@ export interface ApiRecipeRecipe extends Schema.CollectionType {
       'api::recipe.recipe',
       'oneToMany',
       'api::recipe.recipe'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiTagTag extends Schema.CollectionType {
-  collectionName: 'tags';
-  info: {
-    singularName: 'tag';
-    pluralName: 'tags';
-    displayName: 'Tag';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    recipes: Attribute.Relation<
-      'api::tag.tag',
-      'manyToMany',
-      'api::recipe.recipe'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::tag.tag',
-      'oneToMany',
-      'api::tag.tag'
     >;
     locale: Attribute.String;
   };
@@ -1249,7 +1200,6 @@ declare module '@strapi/types' {
       'api::category-article.category-article': ApiCategoryArticleCategoryArticle;
       'api::page.page': ApiPagePage;
       'api::recipe.recipe': ApiRecipeRecipe;
-      'api::tag.tag': ApiTagTag;
     }
   }
 }
