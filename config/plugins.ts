@@ -1,5 +1,9 @@
 module.exports = ({ env }) => ({
-  // ..
+  upload: {
+    config: {
+      breakpoints: null, // Désactive les formats responsives
+    },
+  },
   publisher: {
     enabled: true,
     config: {
