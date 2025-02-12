@@ -1,10 +1,10 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Attribute, Schema } from '@strapi/strapi';
 
 export interface RecipeIngredients extends Schema.Component {
   collectionName: 'components_recipe_ingredients';
   info: {
-    displayName: 'Ingredient';
     description: '';
+    displayName: 'Ingredient';
   };
   attributes: {
     name: Attribute.String;
@@ -27,16 +27,16 @@ export interface RecipeIngredients extends Schema.Component {
 export interface RecipeNutritionalInformation extends Schema.Component {
   collectionName: 'components_recipe_nutritional_informations';
   info: {
-    displayName: 'nutritional Information';
     description: '';
+    displayName: 'nutritional Information';
   };
   attributes: {
-    lipides: Attribute.String;
-    proteine: Attribute.String;
-    sucre: Attribute.String;
     calories: Attribute.String;
     glucides: Attribute.String;
+    lipides: Attribute.String;
+    proteine: Attribute.String;
     sodium: Attribute.String;
+    sucre: Attribute.String;
   };
 }
 
@@ -46,8 +46,8 @@ export interface RecipeRate extends Schema.Component {
     displayName: 'rate';
   };
   attributes: {
-    star: Attribute.Integer;
     content: Attribute.Text;
+    star: Attribute.Integer;
   };
 }
 
@@ -57,6 +57,12 @@ export interface SharedMetaSocial extends Schema.Component {
     displayName: 'metaSocial';
   };
   attributes: {
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos'>;
     socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
       Attribute.Required;
     title: Attribute.String &
@@ -64,41 +70,35 @@ export interface SharedMetaSocial extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    description: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
-    image: Attribute.Media;
   };
 }
 
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
-    displayName: 'seo';
     description: '';
+    displayName: 'seo';
   };
   attributes: {
-    metaSocial: Attribute.Component<'shared.meta-social', true>;
-    metaRobots: Attribute.String & Attribute.DefaultTo<'index, follow'>;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 160;
       }>;
     keywords: Attribute.Text;
+    metaRobots: Attribute.String & Attribute.DefaultTo<'index, follow'>;
+    metaSocial: Attribute.Component<'shared.meta-social', true>;
   };
 }
 
 export interface UiCard extends Schema.Component {
   collectionName: 'components_ui_cards';
   info: {
-    displayName: 'card';
     description: '';
+    displayName: 'card';
   };
   attributes: {
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Attribute.String;
-    cover: Attribute.Media;
   };
 }
 
@@ -108,8 +108,8 @@ export interface UiListCard extends Schema.Component {
     displayName: 'list-card';
   };
   attributes: {
-    Title: Attribute.String;
     List: Attribute.Component<'ui.card', true>;
+    Title: Attribute.String;
   };
 }
 
