@@ -9,7 +9,7 @@ WORKDIR /opt/
 COPY package.json package-lock.json ./
 RUN npm install -g node-gyp
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install --only=production --legacy-peer-deps
-ENV PATH /opt/node_modules/.bin:$PATH
+ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
 RUN ["npm", "run", "build"]
@@ -21,7 +21,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
-ENV PATH /opt/node_modules/.bin:$PATH
+ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY --from=build --chown=strapi:strapi /opt/app ./
 # Add these lines before switching to strapi user
