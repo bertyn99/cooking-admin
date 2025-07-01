@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ui_videos",
+  "info": {
+    "displayName": "video",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    }
+  }
+}

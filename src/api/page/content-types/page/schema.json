@@ -51,7 +51,13 @@
       "components": [
         "ui.card",
         "ui.list-card",
-        "ui.text"
+        "ui.text",
+        "ui.grid",
+        "ui.image",
+        "ui.quote",
+        "ui.video",
+        "ui.gallery",
+        "ui.banner"
       ]
     },
     "seoMeta": {

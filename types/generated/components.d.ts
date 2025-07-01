@@ -90,6 +90,18 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface UiBanner extends Schema.Component {
+  collectionName: 'components_ui_banners';
+  info: {
+    displayName: 'banner';
+    icon: 'hashtag';
+  };
+  attributes: {
+    background: Attribute.Blocks;
+    message: Attribute.Text;
+  };
+}
+
 export interface UiCard extends Schema.Component {
   collectionName: 'components_ui_cards';
   info: {
@@ -99,6 +111,52 @@ export interface UiCard extends Schema.Component {
   attributes: {
     cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Attribute.String;
+  };
+}
+
+export interface UiCell extends Schema.Component {
+  collectionName: 'components_ui_cells';
+  info: {
+    displayName: 'cell';
+    icon: 'chartBubble';
+  };
+  attributes: {};
+}
+
+export interface UiGallery extends Schema.Component {
+  collectionName: 'components_ui_galleries';
+  info: {
+    displayName: 'gallery';
+    icon: 'landscape';
+  };
+  attributes: {
+    titlr: Attribute.String;
+  };
+}
+
+export interface UiGrid extends Schema.Component {
+  collectionName: 'components_ui_grids';
+  info: {
+    description: '';
+    displayName: 'Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    cells: Attribute.JSON;
+    title: Attribute.String;
+  };
+}
+
+export interface UiImage extends Schema.Component {
+  collectionName: 'components_ui_images';
+  info: {
+    displayName: 'image';
+    icon: 'picture';
+  };
+  attributes: {
+    alternativeText: Attribute.String;
+    caption: Attribute.String;
+    url: Attribute.String;
   };
 }
 
@@ -113,6 +171,18 @@ export interface UiListCard extends Schema.Component {
   };
 }
 
+export interface UiQuote extends Schema.Component {
+  collectionName: 'components_ui_quotes';
+  info: {
+    displayName: 'quote';
+    icon: 'feather';
+  };
+  attributes: {
+    author: Attribute.String;
+    content: Attribute.Text;
+  };
+}
+
 export interface UiText extends Schema.Component {
   collectionName: 'components_ui_texts';
   info: {
@@ -120,6 +190,19 @@ export interface UiText extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
+  };
+}
+
+export interface UiVideo extends Schema.Component {
+  collectionName: 'components_ui_videos';
+  info: {
+    displayName: 'video';
+    icon: 'play';
+  };
+  attributes: {
+    height: Attribute.String;
+    url: Attribute.String;
+    width: Attribute.String;
   };
 }
 
@@ -131,9 +214,16 @@ declare module '@strapi/types' {
       'recipe.rate': RecipeRate;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'ui.banner': UiBanner;
       'ui.card': UiCard;
+      'ui.cell': UiCell;
+      'ui.gallery': UiGallery;
+      'ui.grid': UiGrid;
+      'ui.image': UiImage;
       'ui.list-card': UiListCard;
+      'ui.quote': UiQuote;
       'ui.text': UiText;
+      'ui.video': UiVideo;
     }
   }
 }

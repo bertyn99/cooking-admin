@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_ui_grids",
+  "info": {
+    "displayName": "Grid",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cells": {
+      "type": "json"
+    }
+  }
+}

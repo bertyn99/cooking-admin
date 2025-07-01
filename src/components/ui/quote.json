@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ui_quotes",
+  "info": {
+    "displayName": "quote",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string"
+    }
+  }
+}

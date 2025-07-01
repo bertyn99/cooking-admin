@@ -403,12 +403,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::article.article',
-      'oneToMany',
-      'api::article.article'
-    >;
     publishedAt: Attribute.DateTime;
     seo: Attribute.Component<'shared.seo', true> &
       Attribute.SetPluginOptions<{
@@ -511,12 +505,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::category.category'
-    >;
     name: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -556,7 +544,19 @@ export interface ApiPagePage extends Schema.CollectionType {
     };
   };
   attributes: {
-    Content: Attribute.DynamicZone<['ui.card', 'ui.list-card', 'ui.text']> &
+    Content: Attribute.DynamicZone<
+      [
+        'ui.card',
+        'ui.list-card',
+        'ui.text',
+        'ui.grid',
+        'ui.image',
+        'ui.quote',
+        'ui.video',
+        'ui.gallery',
+        'ui.banner'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -565,12 +565,6 @@ export interface ApiPagePage extends Schema.CollectionType {
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::page.page',
-      'oneToMany',
-      'api::page.page'
-    >;
     name: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -657,12 +651,6 @@ export interface ApiRecipeRecipe extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::recipe.recipe',
-      'oneToMany',
-      'api::recipe.recipe'
-    >;
     nutrition: Attribute.Component<'recipe.nutritional-information'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -808,53 +796,6 @@ export interface PluginContentReleasesReleaseAction
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::content-releases.release-action',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    collectionName: 'locales';
-    description: '';
-    displayName: 'Locale';
-    pluralName: 'locales';
-    singularName: 'locale';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          max: 50;
-          min: 1;
-        },
-        number
-      >;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
       'oneToOne',
       'admin::user'
     > &
@@ -1200,7 +1141,6 @@ declare module '@strapi/types' {
       'api::recipe.recipe': ApiRecipeRecipe;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::publisher.action': PluginPublisherAction;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;

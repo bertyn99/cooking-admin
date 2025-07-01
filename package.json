@@ -15,19 +15,18 @@
   },
   "dependencies": {
     "@offset-dev/strapi-calendar": "^0.0.10",
-    "@strapi/plugin-documentation": "4.25.20",
-    "@strapi/plugin-i18n": "4.25.20",
+    "@strapi/plugin-documentation": "5.9.0",
     "@strapi/plugin-seo": "^1.9.1",
-    "@strapi/plugin-users-permissions": "4.25.20",
-    "@strapi/strapi": "4.25.20",
-    "@strapi/typescript-utils": "4.25.20",
+    "@strapi/plugin-users-permissions": "5.9.0",
+    "@strapi/strapi": "5.9.0",
+    "@strapi/typescript-utils": "5.9.0",
     "pg": "^8.11.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^5.3.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
     "strapi-plugin-local-image-sharp": "^1.7.0",
     "strapi-plugin-publisher": "^1.5.4",
-    "styled-components": "^5.3.11"
+    "styled-components": "^6.0.0"
   },
   "engines": {
     "node": ">=16.x.x <=20.x.x",

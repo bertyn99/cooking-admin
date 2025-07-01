@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_ui_galleries",
+  "info": {
+    "displayName": "gallery",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "titlr": {
+      "type": "string"
+    }
+  }
+}

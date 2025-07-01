@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ui_images",
+  "info": {
+    "displayName": "image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "alternativeText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
+    }
+  }
+}

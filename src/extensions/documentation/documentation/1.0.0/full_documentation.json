@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-02-12T09:04:32.058Z"
+    "x-generation-date": "2025-07-01T11:59:43.328Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -86,57 +86,6 @@
           }
         }
       },
-      "ArticleLocalizationRequest": {
-        "required": [
-          "locale"
-        ],
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "cover": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ],
-            "example": "string or id"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "seo": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SharedSeoComponent"
-            }
-          },
-          "categories": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "example": "string or id"
-            }
-          },
-          "locale": {
-            "type": "string"
-          }
-        }
-      },
       "ArticleRequest": {
         "type": "object",
         "required": [
@@ -184,77 +133,6 @@
                     }
                   ],
                   "example": "string or id"
-                }
-              },
-              "locale": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "ArticleResponseDataObjectLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Article"
-          }
-        }
-      },
-      "ArticleLocalizationResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ArticleResponseDataObjectLocalized"
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "ArticleListResponseDataItemLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Article"
-          }
-        }
-      },
-      "ArticleLocalizationListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ArticleListResponseDataItemLocalized"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
                 }
               }
             }
@@ -1374,18 +1252,6 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "localizations": {
-                                        "type": "object",
-                                        "properties": {
-                                          "data": {
-                                            "type": "array",
-                                            "items": {}
-                                          }
-                                        }
-                                      },
-                                      "locale": {
-                                        "type": "string"
                                       }
                                     }
                                   }
@@ -1492,20 +1358,6 @@
                 }
               }
             }
-          },
-          "localizations": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ArticleListResponseDataItemLocalized"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
           }
         }
       },
@@ -1711,51 +1563,6 @@
           }
         }
       },
-      "CategoryLocalizationRequest": {
-        "required": [
-          "locale"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "desc": {
-            "type": "string"
-          },
-          "img": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "example": "string or id"
-            }
-          },
-          "recipes": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "example": "string or id"
-            }
-          },
-          "locale": {
-            "type": "string"
-          }
-        }
-      },
       "CategoryRequest": {
         "type": "object",
         "required": [
@@ -1797,77 +1604,6 @@
                     }
                   ],
                   "example": "string or id"
-                }
-              },
-              "locale": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "CategoryResponseDataObjectLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Category"
-          }
-        }
-      },
-      "CategoryLocalizationResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/CategoryResponseDataObjectLocalized"
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "CategoryListResponseDataItemLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Category"
-          }
-        }
-      },
-      "CategoryLocalizationListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CategoryListResponseDataItemLocalized"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
                 }
               }
             }
@@ -2970,18 +2706,6 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "localizations": {
-                                        "type": "object",
-                                        "properties": {
-                                          "data": {
-                                            "type": "array",
-                                            "items": {}
-                                          }
-                                        }
-                                      },
-                                      "locale": {
-                                        "type": "string"
                                       }
                                     }
                                   }
@@ -3278,18 +3002,6 @@
                               }
                             }
                           }
-                        },
-                        "localizations": {
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "type": "array",
-                              "items": {}
-                            }
-                          }
-                        },
-                        "locale": {
-                          "type": "string"
                         }
                       }
                     }
@@ -3343,20 +3055,6 @@
                 }
               }
             }
-          },
-          "localizations": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/CategoryListResponseDataItemLocalized"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
           }
         }
       },
@@ -4427,18 +4125,6 @@
                               }
                             }
                           }
-                        },
-                        "localizations": {
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "type": "array",
-                              "items": {}
-                            }
-                          }
-                        },
-                        "locale": {
-                          "type": "string"
                         }
                       }
                     }
@@ -4517,56 +4203,6 @@
           }
         }
       },
-      "PageLocalizationRequest": {
-        "required": [
-          "locale"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "Content": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UiCardComponent"
-                },
-                {
-                  "$ref": "#/components/schemas/UiListCardComponent"
-                },
-                {
-                  "$ref": "#/components/schemas/UiTextComponent"
-                }
-              ]
-            }
-          },
-          "seoMeta": {
-            "$ref": "#/components/schemas/SharedSeoComponent"
-          },
-          "parent": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ],
-            "example": "string or id"
-          },
-          "locale": {
-            "type": "string"
-          }
-        }
-      },
       "PageRequest": {
         "type": "object",
         "required": [
@@ -4597,6 +4233,24 @@
                     },
                     {
                       "$ref": "#/components/schemas/UiTextComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiGridComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiImageComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiQuoteComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiVideoComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiGalleryComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UiBannerComponent"
                     }
                   ]
                 }
@@ -4614,77 +4268,6 @@
                   }
                 ],
                 "example": "string or id"
-              },
-              "locale": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "PageResponseDataObjectLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Page"
-          }
-        }
-      },
-      "PageLocalizationResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/PageResponseDataObjectLocalized"
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "PageListResponseDataItemLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Page"
-          }
-        }
-      },
-      "PageLocalizationListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PageListResponseDataItemLocalized"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
-                }
               }
             }
           }
@@ -4760,6 +4343,24 @@
                 },
                 {
                   "$ref": "#/components/schemas/UiTextComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiGridComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiImageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiQuoteComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiVideoComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiGalleryComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/UiBannerComponent"
                 }
               ]
             }
@@ -5125,6 +4726,107 @@
                                   "type": "string"
                                 }
                               }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "cells": {}
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "alternativeText": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "caption": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "content": {
+                                  "type": "string"
+                                },
+                                "author": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "width": {
+                                  "type": "string"
+                                },
+                                "height": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "titlr": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "type": "string"
+                                },
+                                "background": {}
+                              }
                             }
                           ]
                         }
@@ -5371,18 +5073,6 @@
                             }
                           }
                         }
-                      },
-                      "localizations": {
-                        "type": "object",
-                        "properties": {
-                          "data": {
-                            "type": "array",
-                            "items": {}
-                          }
-                        }
-                      },
-                      "locale": {
-                        "type": "string"
                       }
                     }
                   }
@@ -5435,20 +5125,6 @@
                 }
               }
             }
-          },
-          "localizations": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/PageListResponseDataItemLocalized"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
           }
         }
       },
@@ -5658,84 +5334,105 @@
           }
         }
       },
-      "RecipeLocalizationRequest": {
-        "required": [
-          "locale"
-        ],
+      "UiGridComponent": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
-          "Intro": {
+          "cells": {}
+        }
+      },
+      "UiImageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
             "type": "string"
           },
-          "cover": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ],
-            "example": "string or id"
-          },
-          "Ingredient": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecipeIngredientsComponent"
-            }
-          },
-          "categories": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "example": "string or id"
-            }
-          },
-          "step": {
+          "alternativeText": {
             "type": "string"
           },
-          "slug": {
+          "url": {
             "type": "string"
           },
-          "difficulty": {
-            "type": "string",
-            "enum": [
-              "easy",
-              "medium",
-              "hard"
-            ]
-          },
-          "time": {
-            "type": "integer"
-          },
-          "nutrition": {
-            "$ref": "#/components/schemas/RecipeNutritionalInformationComponent"
-          },
-          "seo": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SharedSeoComponent"
-            }
-          },
-          "reviews": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecipeRateComponent"
-            }
-          },
-          "locale": {
+          "caption": {
             "type": "string"
           }
+        }
+      },
+      "UiQuoteComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          }
+        }
+      },
+      "UiVideoComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "width": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          }
+        }
+      },
+      "UiGalleryComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "titlr": {
+            "type": "string"
+          }
+        }
+      },
+      "UiBannerComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "background": {}
         }
       },
       "RecipeRequest": {
@@ -5814,77 +5511,6 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/RecipeRateComponent"
-                }
-              },
-              "locale": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "RecipeResponseDataObjectLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Recipe"
-          }
-        }
-      },
-      "RecipeLocalizationResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/RecipeResponseDataObjectLocalized"
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "RecipeListResponseDataItemLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Recipe"
-          }
-        }
-      },
-      "RecipeLocalizationListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecipeListResponseDataItemLocalized"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
                 }
               }
             }
@@ -7233,18 +6859,6 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "localizations": {
-                                        "type": "object",
-                                        "properties": {
-                                          "data": {
-                                            "type": "array",
-                                            "items": {}
-                                          }
-                                        }
-                                      },
-                                      "locale": {
-                                        "type": "string"
                                       }
                                     }
                                   }
@@ -7298,18 +6912,6 @@
                               }
                             }
                           }
-                        },
-                        "localizations": {
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "type": "array",
-                              "items": {}
-                            }
-                          }
-                        },
-                        "locale": {
-                          "type": "string"
                         }
                       }
                     }
@@ -7395,20 +6997,6 @@
                 }
               }
             }
-          },
-          "localizations": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/RecipeListResponseDataItemLocalized"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
           }
         }
       },
@@ -8215,98 +7803,6 @@
         "operationId": "delete/articles/{id}"
       }
     },
-    "/articles/{id}/localizations": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ArticleLocalizationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Article"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "operationId": "post/articles/{id}/localizations",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ArticleLocalizationRequest"
-              }
-            }
-          }
-        }
-      }
-    },
     "/categories": {
       "get": {
         "responses": {
@@ -8811,98 +8307,6 @@
           }
         ],
         "operationId": "delete/categories/{id}"
-      }
-    },
-    "/categories/{id}/localizations": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryLocalizationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "operationId": "post/categories/{id}/localizations",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CategoryLocalizationRequest"
-              }
-            }
-          }
-        }
       }
     },
     "/category-articles": {
@@ -9917,98 +9321,6 @@
         "operationId": "delete/pages/{id}"
       }
     },
-    "/pages/{id}/localizations": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PageLocalizationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Page"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "operationId": "post/pages/{id}/localizations",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PageLocalizationRequest"
-              }
-            }
-          }
-        }
-      }
-    },
     "/recipes": {
       "get": {
         "responses": {
@@ -10513,98 +9825,6 @@
           }
         ],
         "operationId": "delete/recipes/{id}"
-      }
-    },
-    "/recipes/{id}/localizations": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RecipeLocalizationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Recipe"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "operationId": "post/recipes/{id}/localizations",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RecipeLocalizationRequest"
-              }
-            }
-          }
-        }
       }
     },
     "/upload": {
