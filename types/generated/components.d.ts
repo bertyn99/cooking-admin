@@ -1,15 +1,15 @@
-import type { Attribute, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface RecipeIngredients extends Schema.Component {
+export interface RecipeIngredients extends Struct.ComponentSchema {
   collectionName: 'components_recipe_ingredients';
   info: {
     description: '';
     displayName: 'Ingredient';
   };
   attributes: {
-    name: Attribute.String;
-    qty: Attribute.Decimal;
-    unit: Attribute.Enumeration<
+    name: Schema.Attribute.String;
+    qty: Schema.Attribute.Decimal;
+    unit: Schema.Attribute.Enumeration<
       [
         'none',
         'g',
@@ -17,104 +17,105 @@ export interface RecipeIngredients extends Schema.Component {
         'l',
         'cuill\u00E8re a soupe',
         'cuill\u00E8re \u00E0 caf\u00E9',
-        'tasse'
+        'tasse',
       ]
     > &
-      Attribute.DefaultTo<'g'>;
+      Schema.Attribute.DefaultTo<'g'>;
   };
 }
 
-export interface RecipeNutritionalInformation extends Schema.Component {
+export interface RecipeNutritionalInformation extends Struct.ComponentSchema {
   collectionName: 'components_recipe_nutritional_informations';
   info: {
     description: '';
     displayName: 'nutritional Information';
   };
   attributes: {
-    calories: Attribute.String;
-    glucides: Attribute.String;
-    lipides: Attribute.String;
-    proteine: Attribute.String;
-    sodium: Attribute.String;
-    sucre: Attribute.String;
+    calories: Schema.Attribute.String;
+    glucides: Schema.Attribute.String;
+    lipides: Schema.Attribute.String;
+    proteine: Schema.Attribute.String;
+    sodium: Schema.Attribute.String;
+    sucre: Schema.Attribute.String;
   };
 }
 
-export interface RecipeRate extends Schema.Component {
+export interface RecipeRate extends Struct.ComponentSchema {
   collectionName: 'components_recipe_rates';
   info: {
     displayName: 'rate';
   };
   attributes: {
-    content: Attribute.Text;
-    star: Attribute.Integer;
+    content: Schema.Attribute.Text;
+    star: Schema.Attribute.Integer;
   };
 }
 
-export interface SharedMetaSocial extends Schema.Component {
+export interface SharedMetaSocial extends Struct.ComponentSchema {
   collectionName: 'components_shared_meta_socials';
   info: {
     displayName: 'metaSocial';
   };
   attributes: {
-    description: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         maxLength: 65;
       }>;
-    image: Attribute.Media<'images' | 'files' | 'videos'>;
-    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
-      Attribute.Required;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    socialNetwork: Schema.Attribute.Enumeration<['Facebook', 'Twitter']> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
   };
 }
 
-export interface SharedSeo extends Schema.Component {
+export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
     description: '';
     displayName: 'seo';
   };
   attributes: {
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
         maxLength: 160;
       }>;
-    keywords: Attribute.Text;
-    metaRobots: Attribute.String & Attribute.DefaultTo<'index, follow'>;
-    metaSocial: Attribute.Component<'shared.meta-social', true>;
+    keywords: Schema.Attribute.Text;
+    metaRobots: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'index, follow'>;
+    metaSocial: Schema.Attribute.Component<'shared.meta-social', true>;
   };
 }
 
-export interface UiBanner extends Schema.Component {
+export interface UiBanner extends Struct.ComponentSchema {
   collectionName: 'components_ui_banners';
   info: {
     displayName: 'banner';
     icon: 'hashtag';
   };
   attributes: {
-    background: Attribute.Blocks;
-    message: Attribute.Text;
+    background: Schema.Attribute.Blocks;
+    message: Schema.Attribute.Text;
   };
 }
 
-export interface UiCard extends Schema.Component {
+export interface UiCard extends Struct.ComponentSchema {
   collectionName: 'components_ui_cards';
   info: {
     description: '';
     displayName: 'card';
   };
   attributes: {
-    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Attribute.String;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface UiCell extends Schema.Component {
+export interface UiCell extends Struct.ComponentSchema {
   collectionName: 'components_ui_cells';
   info: {
     displayName: 'cell';
@@ -123,18 +124,18 @@ export interface UiCell extends Schema.Component {
   attributes: {};
 }
 
-export interface UiGallery extends Schema.Component {
+export interface UiGallery extends Struct.ComponentSchema {
   collectionName: 'components_ui_galleries';
   info: {
     displayName: 'gallery';
     icon: 'landscape';
   };
   attributes: {
-    titlr: Attribute.String;
+    titlr: Schema.Attribute.String;
   };
 }
 
-export interface UiGrid extends Schema.Component {
+export interface UiGrid extends Struct.ComponentSchema {
   collectionName: 'components_ui_grids';
   info: {
     description: '';
@@ -142,73 +143,73 @@ export interface UiGrid extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    cells: Attribute.JSON;
-    title: Attribute.String;
+    cells: Schema.Attribute.JSON;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface UiImage extends Schema.Component {
+export interface UiImage extends Struct.ComponentSchema {
   collectionName: 'components_ui_images';
   info: {
     displayName: 'image';
     icon: 'picture';
   };
   attributes: {
-    alternativeText: Attribute.String;
-    caption: Attribute.String;
-    url: Attribute.String;
+    alternativeText: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
-export interface UiListCard extends Schema.Component {
+export interface UiListCard extends Struct.ComponentSchema {
   collectionName: 'components_ui_list_cards';
   info: {
     displayName: 'list-card';
   };
   attributes: {
-    List: Attribute.Component<'ui.card', true>;
-    Title: Attribute.String;
+    List: Schema.Attribute.Component<'ui.card', true>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface UiQuote extends Schema.Component {
+export interface UiQuote extends Struct.ComponentSchema {
   collectionName: 'components_ui_quotes';
   info: {
     displayName: 'quote';
     icon: 'feather';
   };
   attributes: {
-    author: Attribute.String;
-    content: Attribute.Text;
+    author: Schema.Attribute.String;
+    content: Schema.Attribute.Text;
   };
 }
 
-export interface UiText extends Schema.Component {
+export interface UiText extends Struct.ComponentSchema {
   collectionName: 'components_ui_texts';
   info: {
     displayName: 'text';
   };
   attributes: {
-    content: Attribute.RichText;
+    content: Schema.Attribute.RichText;
   };
 }
 
-export interface UiVideo extends Schema.Component {
+export interface UiVideo extends Struct.ComponentSchema {
   collectionName: 'components_ui_videos';
   info: {
     displayName: 'video';
     icon: 'play';
   };
   attributes: {
-    height: Attribute.String;
-    url: Attribute.String;
-    width: Attribute.String;
+    height: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    width: Schema.Attribute.String;
   };
 }
 
-declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
       'recipe.ingredients': RecipeIngredients;
       'recipe.nutritional-information': RecipeNutritionalInformation;
       'recipe.rate': RecipeRate;

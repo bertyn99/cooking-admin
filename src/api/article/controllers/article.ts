@@ -11,7 +11,7 @@ export default factories.createCoreController(
       // Calling the default core action
       const article = await super.find(ctx);
 
-      if (ctx.query.populate && ctx.query.populate.includes("surround")) {
+      if (ctx.query.populate && ctx.query.populate["surround"]) {
         const publishDate = new Date(article.data[0].attributes.publishedAt);
         const fewDaysAfter = new Date(publishDate.toJSON());
         fewDaysAfter.setDate(fewDaysAfter.getDate() + 10);
