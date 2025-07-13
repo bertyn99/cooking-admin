@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-07-13T11:42:18.344Z"
+    "x-generation-date": "2025-07-13T12:50:50.510Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -6004,7 +6004,7 @@
                 "title": {
                   "type": "string"
                 },
-                "Intro": {
+                "intro": {
                   "type": "string"
                 },
                 "cover": {
@@ -6136,7 +6136,7 @@
                     }
                   }
                 },
-                "Ingredient": {
+                "ingredients": {
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/RecipeIngredientsComponent"
@@ -7512,7 +7512,7 @@
               "slug": {
                 "type": "string"
               },
-              "Content": {
+              "content": {
                 "type": "array",
                 "items": {
                   "anyOf": [
@@ -7648,7 +7648,7 @@
           "slug": {
             "type": "string"
           },
-          "Content": {
+          "content": {
             "type": "array",
             "items": {
               "anyOf": [
@@ -7717,7 +7717,7 @@
               "slug": {
                 "type": "string"
               },
-              "Content": {
+              "content": {
                 "type": "array",
                 "items": {
                   "anyOf": [
@@ -8207,7 +8207,7 @@
               "title": {
                 "type": "string"
               },
-              "Intro": {
+              "intro": {
                 "type": "string"
               },
               "cover": {
@@ -8221,7 +8221,7 @@
                 ],
                 "example": "string or id"
               },
-              "Ingredient": {
+              "ingredients": {
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/RecipeIngredientsComponent"
@@ -8341,7 +8341,7 @@
           "title": {
             "type": "string"
           },
-          "Intro": {
+          "intro": {
             "type": "string"
           },
           "cover": {
@@ -8942,7 +8942,7 @@
               }
             }
           },
-          "Ingredient": {
+          "ingredients": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RecipeIngredientsComponent"
@@ -9111,7 +9111,7 @@
                       "title": {
                         "type": "string"
                       },
-                      "Intro": {
+                      "intro": {
                         "type": "string"
                       },
                       "cover": {
@@ -9243,7 +9243,7 @@
                           }
                         }
                       },
-                      "Ingredient": {
+                      "ingredients": {
                         "type": "array",
                         "items": {
                           "$ref": "#/components/schemas/RecipeIngredientsComponent"

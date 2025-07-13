@@ -17,23 +17,28 @@
   },
   "attributes": {
     "title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
-    "Intro": {
+    "intro": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     },
     "cover": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "multiple": false,
       "required": false,
       "allowedTypes": [
@@ -41,22 +46,17 @@
         "files",
         "videos",
         "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     },
-    "Ingredient": {
+    "ingredients": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "recipe.ingredients"
+      "component": "recipe.ingredients",
+      "repeatable": true
     },
     "categories": {
       "type": "relation",
@@ -65,74 +65,73 @@
       "inversedBy": "recipes"
     },
     "step": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     },
     "slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
       "targetField": "title"
     },
     "difficulty": {
+      "type": "enumeration",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "enumeration",
+      "default": "easy",
       "enum": [
         "easy",
         "medium",
         "hard"
-      ],
-      "default": "easy"
+      ]
     },
     "time": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "integer"
+      }
     },
     "nutrition": {
-      "displayName": "nutritional Information",
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "recipe.nutritional-information"
+      "component": "recipe.nutritional-information",
+      "repeatable": false
     },
     "seo": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "repeatable": true
     },
     "reviews": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "recipe.rate"
+      "component": "recipe.rate",
+      "repeatable": true
     }
   }
 }

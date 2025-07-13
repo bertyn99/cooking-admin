@@ -541,7 +541,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Content: Schema.Attribute.DynamicZone<
+    content: Schema.Attribute.DynamicZone<
       [
         'ui.card',
         'ui.list-card',
@@ -633,13 +633,13 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'easy'>;
-    Ingredient: Schema.Attribute.Component<'recipe.ingredients', true> &
+    ingredients: Schema.Attribute.Component<'recipe.ingredients', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Intro: Schema.Attribute.RichText &
+    intro: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
