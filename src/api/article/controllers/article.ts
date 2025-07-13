@@ -30,9 +30,9 @@ export default factories.createCoreController(
       if (ctx.query.populate && surround) {
         const publishDate = new Date(article.data[0].publishedAt);
         const fewDaysAfter = new Date(publishDate.toJSON());
-        fewDaysAfter.setDate(fewDaysAfter.getDate() + 10);
+        fewDaysAfter.setDate(fewDaysAfter.getDate() + 30);
         const fewDaysBefore = new Date(publishDate.toJSON());
-        fewDaysBefore.setDate(fewDaysBefore.getDate() - 10);
+        fewDaysBefore.setDate(fewDaysBefore.getDate() - 30);
 
         const { results: nextArticle }: any = await strapi
           .service("api::article.article")
@@ -51,6 +51,10 @@ export default factories.createCoreController(
                   },
                 },
               ],
+            },
+            pagination: {
+              page: 1,
+              pageSize: 1,
             },
             order: {
               publishedAt: "asc",
@@ -73,6 +77,10 @@ export default factories.createCoreController(
                   },
                 },
               ],
+            },
+            pagination: {
+              page: 1,
+              pageSize: 1,
             },
             order: {
               publishedAt: "asc",
