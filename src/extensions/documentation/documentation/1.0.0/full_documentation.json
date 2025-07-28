@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-07-28T12:16:35.279Z"
+    "x-generation-date": "2025-07-28T13:03:38.481Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -4066,6 +4066,10 @@
                 ],
                 "example": "string or id"
               },
+              "firstPublishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
               "locale": {
                 "type": "string"
               },
@@ -4922,6 +4926,10 @@
                         }
                       }
                     },
+                    "firstPublishedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -5031,6 +5039,10 @@
                 }
               }
             }
+          },
+          "firstPublishedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "createdAt": {
             "type": "string",
@@ -6388,6 +6400,10 @@
                     "$ref": "#/components/schemas/RecipeRateComponent"
                   }
                 },
+                "firstPublishedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -7379,6 +7395,10 @@
                     }
                   }
                 },
+                "firstPublishedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -8275,6 +8295,10 @@
                 "items": {
                   "$ref": "#/components/schemas/RecipeRateComponent"
                 }
+              },
+              "firstPublishedAt": {
+                "type": "string",
+                "format": "date-time"
               },
               "locale": {
                 "type": "string"
@@ -9293,6 +9317,10 @@
                         "$ref": "#/components/schemas/RecipeRateComponent"
                       }
                     },
+                    "firstPublishedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -9434,6 +9462,10 @@
             "items": {
               "$ref": "#/components/schemas/RecipeRateComponent"
             }
+          },
+          "firstPublishedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "createdAt": {
             "type": "string",

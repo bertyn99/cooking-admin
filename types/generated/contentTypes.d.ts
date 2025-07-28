@@ -409,6 +409,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    firstPublishedAt: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -640,6 +646,12 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'easy'>;
+    firstPublishedAt: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     ingredients: Schema.Attribute.Component<'recipe.ingredients', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

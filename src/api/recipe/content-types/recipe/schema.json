@@ -132,6 +132,14 @@
       },
       "component": "recipe.rate",
       "repeatable": true
+    },
+    "firstPublishedAt": {
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

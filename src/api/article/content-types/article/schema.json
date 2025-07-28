@@ -72,6 +72,14 @@
       "relation": "manyToOne",
       "target": "api::category-article.category-article",
       "inversedBy": "articles"
+    },
+    "firstPublishedAt": {
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
