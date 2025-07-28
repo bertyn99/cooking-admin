@@ -50,9 +50,9 @@
     },
     "recipes": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::recipe.recipe",
-      "mappedBy": "categories"
+      "mappedBy": "category"
     },
     "slug": {
       "type": "uid",
