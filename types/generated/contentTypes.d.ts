@@ -390,8 +390,8 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    categories: Schema.Attribute.Relation<
-      'manyToMany',
+    category: Schema.Attribute.Relation<
+      'manyToOne',
       'api::category-article.category-article'
     >;
     content: Schema.Attribute.RichText &
@@ -452,7 +452,7 @@ export interface ApiCategoryArticleCategoryArticle
     draftAndPublish: true;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
