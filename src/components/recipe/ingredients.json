@@ -14,16 +14,18 @@
     },
     "unit": {
       "type": "enumeration",
+      "default": "g",
       "enum": [
         "none",
         "g",
+        "mg",
         "kg",
         "l",
+        "ml",
         "cuillère a soupe",
         "cuillère à café",
         "tasse"
-      ],
-      "default": "g"
+      ]
     }
   }
 }

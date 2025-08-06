@@ -13,8 +13,10 @@ export interface RecipeIngredients extends Struct.ComponentSchema {
       [
         'none',
         'g',
+        'mg',
         'kg',
         'l',
+        'ml',
         'cuill\u00E8re a soupe',
         'cuill\u00E8re \u00E0 caf\u00E9',
         'tasse',
